@@ -30,13 +30,22 @@ export default function AboutPage() {
   return (
     <div className="pt-16">
       {/* 헤더 */}
-      <section className="bg-[var(--color-beige)] py-20 px-6 text-center">
+      <section className="bg-[var(--color-beige)] py-20 px-6">
         <FadeIn>
-          <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">ABOUT</p>
-          <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">단초샘을 소개합니다</h1>
-          <p className="text-[var(--color-text-muted)] max-w-xl mx-auto">
-            나다움의 가치를 믿고, 그 여정을 함께 걸어온 코칭 지도사입니다.
-          </p>
+          <div className="max-w-4xl mx-auto flex flex-col md:flex-row items-center gap-10">
+            <img
+              src="/profileimage.jpg"
+              alt="단초샘 프로필"
+              className="w-48 h-48 md:w-64 md:h-64 rounded-full object-cover shadow-md shrink-0"
+            />
+            <div className="text-center md:text-left">
+              <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">ABOUT</p>
+              <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">단초샘을 소개합니다</h1>
+              <p className="text-[var(--color-text-muted)] max-w-xl">
+                나다움의 가치를 믿고, 그 여정을 함께 걸어온 코칭 지도사입니다.
+              </p>
+            </div>
+          </div>
         </FadeIn>
       </section>
 
