@@ -18,6 +18,11 @@ const notoSans = Noto_Sans_KR({
 });
 
 export const metadata: Metadata = {
+  verification: {
+    other: {
+      "naver-site-verification": "3505d54a4ab6ef2fc7cb525a7ae069254fe25365",
+    },
+  },
   title: "단초샘 | 나다움을 찾는 코칭과 교육",
   description:
     "단초샘과 함께 나다움을 발견하세요. 이키가이 브랜딩, 나살롱, 골든라이프디자인, 배움성장코칭, 마음돋보기, 책쓰기 등 6가지 핵심 프로그램을 소개합니다.",
