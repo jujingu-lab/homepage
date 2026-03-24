@@ -2,6 +2,8 @@
 
 import { useState } from "react";
 import emailjs from "@emailjs/browser";
+import { collection, addDoc, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
 const programs = ["이키가이", "나살롱", "골든라이프디자인", "배움성장코칭", "마음돋보기", "책쓰기", "아직 모르겠어요"];
 
@@ -23,17 +25,26 @@ export default function ContactForm() {
     e.preventDefault();
     setLoading(true);
     try {
-      await emailjs.send(
-        "service_l15gt2c",
-        "template_n5cj81a",
-        {
+      await Promise.all([
+        emailjs.send(
+          "service_l15gt2c",
+          "template_n5cj81a",
+          {
+            name: form.name,
+            email: form.contact,
+            message: `연락처: ${form.contact}\n관심 프로그램: ${form.program || "미선택"}\n\n문의 내용:\n${form.message}`,
+            title: `[상담신청] ${form.name} - ${form.program || "프로그램 미선택"}`,
+          },
+          "_BhBj4g9nPwINrVA0"
+        ),
+        addDoc(collection(db, "contacts"), {
           name: form.name,
-          email: form.contact,
-          message: `연락처: ${form.contact}\n관심 프로그램: ${form.program || "미선택"}\n\n문의 내용:\n${form.message}`,
-          title: `[상담신청] ${form.name} - ${form.program || "프로그램 미선택"}`,
-        },
-        "_BhBj4g9nPwINrVA0"
-      );
+          contact: form.contact,
+          program: form.program || "미선택",
+          message: form.message,
+          createdAt: serverTimestamp(),
+        }),
+      ]);
       setSubmitted(true);
     } catch {
       alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
