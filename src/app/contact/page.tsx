@@ -34,7 +34,7 @@ export default function ContactPage() {
           <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">CONTACT</p>
           <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">상담 신청</h1>
           <p className="text-[var(--color-text-muted)] max-w-xl mx-auto">
-            첫 상담은 무료입니다. 편하게 문의해 주세요.
+            편하게 문의해 주세요.
           </p>
         </FadeIn>
       </section>
