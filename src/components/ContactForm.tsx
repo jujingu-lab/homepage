@@ -1,11 +1,13 @@
 "use client";
 
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
 const programs = ["이키가이", "나살롱", "골든라이프디자인", "배움성장코칭", "마음돋보기", "책쓰기", "아직 모르겠어요"];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
     contact: "",
@@ -17,10 +19,27 @@ export default function ContactForm() {
     setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
 
-  function handleSubmit(e: React.FormEvent) {
+  async function handleSubmit(e: React.FormEvent) {
     e.preventDefault();
-    // 실제 연동 시 Google Forms 또는 백엔드 API로 전송
-    setSubmitted(true);
+    setLoading(true);
+    try {
+      await emailjs.send(
+        "service_l15gt2c",
+        "template_n5cj81a",
+        {
+          name: form.name,
+          email: form.contact,
+          message: `연락처: ${form.contact}\n관심 프로그램: ${form.program || "미선택"}\n\n문의 내용:\n${form.message}`,
+          title: `[상담신청] ${form.name} - ${form.program || "프로그램 미선택"}`,
+        },
+        "_BhBj4g9nPwINrVA0"
+      );
+      setSubmitted(true);
+    } catch {
+      alert("전송 중 오류가 발생했습니다. 다시 시도해 주세요.");
+    } finally {
+      setLoading(false);
+    }
   }
 
   if (submitted) {
@@ -100,9 +119,10 @@ export default function ContactForm() {
 
       <button
         type="submit"
-        className="w-full py-4 rounded-full bg-[var(--color-brown)] text-white font-bold hover:bg-[var(--color-brown-dark)] transition-colors"
+        disabled={loading}
+        className="w-full py-4 rounded-full bg-[var(--color-brown)] text-white font-bold hover:bg-[var(--color-brown-dark)] transition-colors disabled:opacity-60"
       >
-        상담 신청하기
+        {loading ? "전송 중..." : "상담 신청하기"}
       </button>
 
       <p className="text-xs text-center text-[var(--color-text-muted)]">
