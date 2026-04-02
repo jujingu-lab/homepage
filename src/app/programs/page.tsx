@@ -63,6 +63,7 @@ const programs = [
     subtitle: "인터넷 신문사 창업 과정",
     target: "나만의 미디어를 만들고 싶은 누구나",
     desc: "인터넷 신문사 창업을 안내하는 과정입니다. 신문사 정체성 수립 부터 인터넷 신문사 솔루션 세팅, 기사 발행을 가이드합니다.",
+    recruiting: "https://blog.naver.com/rnruddnr99/224234702697",
   },
 ];
 
@@ -88,6 +89,9 @@ export default function ProgramsPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h2 className="text-2xl font-bold text-[var(--color-brown-dark)]">{p.title}</h2>
+                    {"recruiting" in p && p.recruiting && (
+                      <a href={p.recruiting as string} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-olive)] text-white hover:opacity-80 transition-opacity">모집 중</a>
+                    )}
                   </div>
                   <p className="text-sm text-[var(--color-olive)]">{p.subtitle}</p>
                 </div>
