@@ -96,6 +96,20 @@ const programs: Record<string, {
     ],
     cta: "책쓰기 코칭 신청하기",
   },
+  "My Media": {
+    icon: "📰",
+    title: "품격있는 브랜딩, My Media",
+    subtitle: "인터넷 신문사 창업 과정",
+    target: "나만의 미디어를 만들고 싶은 누구나",
+    desc: "인터넷 신문사 창업을 안내하는 과정입니다. 신문사 정체성 수립 부터 인터넷 신문사 솔루션 세팅, 기사 발행을 가이드합니다.",
+    details: [
+      "신문사 정체성 및 브랜딩 수립",
+      "인터넷 신문사 솔루션 세팅",
+      "기사 작성 및 발행 가이드",
+      "미디어 운영 전략 코칭",
+    ],
+    cta: "My Media 상담 신청하기",
+  },
 };
 
 export async function generateStaticParams() {

@@ -50,6 +50,14 @@ const programs = [
     color: "bg-[var(--color-brown)]/10 border-[var(--color-brown)]",
     iconColor: "text-[var(--color-brown)]",
   },
+  {
+    slug: "My Media",
+    icon: "📰",
+    title: "품격있는 브랜딩, My Media",
+    desc: "인터넷 신문사 창업을 안내하는 과정입니다. 신문사 정체성 수립부터 솔루션 세팅, 기사 발행을 가이드합니다.",
+    color: "bg-[var(--color-olive)]/10 border-[var(--color-olive)]",
+    iconColor: "text-[var(--color-olive)]",
+  },
 ];
 
 const mediaItems = [
