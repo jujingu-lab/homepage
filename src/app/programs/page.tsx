@@ -23,7 +23,6 @@ const programs = [
     subtitle: "독서 기반 내면 탐구 프로그램",
     target: "책을 통해 자신을 돌아보고 치유하고 싶은 사람",
     desc: "도서를 매개체로 자신의 내면을 깊이 들여다보고, 소그룹 안에서 진솔하게 나누는 치유·소통 프로그램입니다. 단순한 독서 모임을 넘어, 책 속 이야기를 통해 자신의 이야기를 꺼내는 시간입니다.",
-    recruiting: "https://blog.naver.com/rnruddnr99/224225398260",
   },
   {
     slug: "골든라이프디자인",
@@ -81,9 +80,6 @@ export default function ProgramsPage() {
                 <div className="flex-1">
                   <div className="flex items-center gap-3 flex-wrap">
                     <h2 className="text-2xl font-bold text-[var(--color-brown-dark)]">{p.title}</h2>
-                    {p.recruiting && (
-                      <a href={p.recruiting} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-olive)] text-white hover:opacity-80 transition-opacity">모집 중</a>
-                    )}
                   </div>
                   <p className="text-sm text-[var(--color-olive)]">{p.subtitle}</p>
                 </div>
