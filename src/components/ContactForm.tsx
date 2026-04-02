@@ -5,7 +5,7 @@ import emailjs from "@emailjs/browser";
 import { collection, addDoc, serverTimestamp } from "firebase/firestore";
 import { db } from "@/lib/firebase";
 
-const programs = ["이키가이", "나살롱", "골든라이프디자인", "배움성장코칭", "마음돋보기", "책쓰기", "아직 모르겠어요"];
+const programs = ["이키가이", "나살롱", "골든라이프디자인", "배움성장코칭", "마음돋보기", "책쓰기", "품격있는 브랜딩, My Media", "아직 모르겠어요"];
 
 export default function ContactForm() {
   const [submitted, setSubmitted] = useState(false);
