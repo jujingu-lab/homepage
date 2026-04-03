@@ -43,6 +43,14 @@ export const metadata: Metadata = {
     description: "자신의 본질을 찾고 잠재력을 발현시켜 온전한 나의 삶을 살아가는 것, 단초샘이 함께합니다.",
     locale: "ko_KR",
     type: "website",
+    images: [
+      {
+        url: "https://dancho.co.kr/dancho-logo.png",
+        width: 1200,
+        height: 630,
+        alt: "단초샘 로고",
+      },
+    ],
   },
 };
 
