@@ -63,7 +63,7 @@ const programs = [
     subtitle: "인터넷 신문사 창업 과정",
     target: "나만의 미디어를 만들고 싶은 누구나",
     desc: "인터넷 신문사 창업을 안내하는 과정입니다. 신문사 정체성 수립 부터 인터넷 신문사 솔루션 세팅, 기사 발행을 가이드합니다.",
-    recruiting: "https://blog.naver.com/rnruddnr99/224234702697",
+    recruiting: "https://blog.naver.com/parks07300/224238932483",
   },
 ];
 
