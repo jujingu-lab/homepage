@@ -34,8 +34,9 @@ export default function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[var(--color-beige-dark)] py-4 text-center text-xs text-[var(--color-text-muted)]">
-        © {new Date().getFullYear()} 단초샘. All rights reserved.
+      <div className="border-t border-[var(--color-beige-dark)] py-4 text-center text-xs text-[var(--color-text-muted)] space-y-1">
+        <p>통신판매업신고 : 2026-경기안산-0719</p>
+        <p>© {new Date().getFullYear()} 단초샘. All rights reserved.</p>
       </div>
     </footer>
   );
