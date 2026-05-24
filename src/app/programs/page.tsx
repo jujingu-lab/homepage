@@ -90,7 +90,7 @@ export default function ProgramsPage() {
                   <div className="flex items-center gap-3 flex-wrap">
                     <h2 className="text-2xl font-bold text-[var(--color-brown-dark)]">{p.title}</h2>
                     {"recruiting" in p && p.recruiting && (
-                      <a href={p.recruiting as string} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-olive)] text-white hover:opacity-80 transition-opacity">모집 중</a>
+                      <a href={p.recruiting as string} target="_blank" rel="noopener noreferrer" className="text-xs font-semibold px-3 py-1 rounded-full bg-[var(--color-olive)] text-white hover:opacity-80 transition-opacity">진행 중</a>
                     )}
                   </div>
                   <p className="text-sm text-[var(--color-olive)]">{p.subtitle}</p>
