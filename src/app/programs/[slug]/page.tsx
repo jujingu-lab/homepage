@@ -11,6 +11,7 @@ const programs: Record<string, {
   desc: string;
   details: string[];
   cta: string;
+  pdfUrl?: string;
 }> = {
   이키가이: {
     icon: "✦",
@@ -53,6 +54,7 @@ const programs: Record<string, {
       "실현 가능한 단계별 로드맵 수립",
     ],
     cta: "골든라이프 코칭 신청하기",
+    pdfUrl: "/단초샘의 골든라이프디자인_과정소개.pdf",
   },
   배움성장코칭: {
     icon: "◇",
@@ -165,6 +167,16 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             >
               {program.cta}
             </Link>
+            {program.pdfUrl && (
+              <a
+                href={program.pdfUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors"
+              >
+                상세 과정소개(PDF) 보기
+              </a>
+            )}
             <Link
               href="/programs"
               className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors"
