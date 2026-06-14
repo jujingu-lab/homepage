@@ -148,7 +148,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
 
       <section className="py-24 px-6 max-w-3xl mx-auto">
         <FadeIn>
-          <p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-12">{program.desc}</p>
+          <p className="text-lg text-[var(--color-text-muted)] leading-relaxed mb-12 break-keep">{program.desc}</p>
 
           <h2 className="text-xl font-bold text-[var(--color-brown-dark)] mb-6">프로그램 구성</h2>
           <ul className="space-y-4 mb-12">
