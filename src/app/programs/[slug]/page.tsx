@@ -160,10 +160,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row gap-4">
+          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
             <Link
               href="/contact"
-              className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors"
+              className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
             >
               {program.cta}
             </Link>
@@ -172,14 +172,14 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 href={program.pdfUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors"
+                className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
               >
                 상세 과정소개(PDF) 보기
               </a>
             )}
             <Link
               href="/programs"
-              className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors"
+              className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
             >
               다른 프로그램 보기
             </Link>
