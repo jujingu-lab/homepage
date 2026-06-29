@@ -10,6 +10,7 @@ const navLinks = [
   { href: "/about", label: "단초샘 소개" },
   { href: "/programs", label: "프로그램" },
   { href: "/media", label: "미디어" },
+  { href: "https://www.youtube.com/@dian65", label: "단초TV", external: true },
   { href: "/contact", label: "상담 신청" },
 ];
 
@@ -29,15 +30,27 @@ export default function Header() {
 
         {/* 데스크탑 Nav */}
         <nav className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-brown)] transition-colors"
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-brown)] transition-colors"
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-sm text-[var(--color-text-muted)] hover:text-[var(--color-brown)] transition-colors"
+              >
+                {link.label}
+              </Link>
+            )
+          )}
 
           {/* 로그인/유저 영역 */}
           {!loading && (
@@ -92,16 +105,29 @@ export default function Header() {
       {/* 모바일 메뉴 */}
       {menuOpen && (
         <div className="md:hidden bg-[var(--color-cream)] border-t border-[var(--color-beige)] px-6 py-4 flex flex-col gap-4">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[var(--color-text)] hover:text-[var(--color-brown)] transition-colors"
-              onClick={() => setMenuOpen(false)}
-            >
-              {link.label}
-            </Link>
-          ))}
+          {navLinks.map((link) =>
+            link.external ? (
+              <a
+                key={link.href}
+                href={link.href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--color-text)] hover:text-[var(--color-brown)] transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </a>
+            ) : (
+              <Link
+                key={link.href}
+                href={link.href}
+                className="text-[var(--color-text)] hover:text-[var(--color-brown)] transition-colors"
+                onClick={() => setMenuOpen(false)}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
           {!loading && (
             user ? (
               <button
