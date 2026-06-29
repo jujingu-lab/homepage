@@ -79,7 +79,7 @@ export default function AboutPage() {
             <a href="https://blog.naver.com/jujingu99" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--color-beige-dark)] bg-white hover:shadow-sm transition-shadow text-[var(--color-text-muted)] text-sm">
               <span>📝</span> 네이버 블로그
             </a>
-            <a href="https://www.youtube.com/@dian65" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--color-beige-dark)] bg-white hover:shadow-sm transition-shadow text-[var(--color-text-muted)] text-sm">
+            <a href="https://www.youtube.com/@%EB%8B%A8%EC%B4%88TV" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--color-beige-dark)] bg-white hover:shadow-sm transition-shadow text-[var(--color-text-muted)] text-sm">
               <span>▶</span> 유튜브
             </a>
             <a href="mailto:jujingu99@naver.com" className="flex items-center gap-2 px-5 py-3 rounded-full border border-[var(--color-beige-dark)] bg-white hover:shadow-sm transition-shadow text-[var(--color-text-muted)] text-sm">
