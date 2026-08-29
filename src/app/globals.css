@@ -4,12 +4,12 @@
   --color-cream: #FAF7F2;
   --color-beige: #F0EAD6;
   --color-beige-dark: #E0D6BF;
-  --color-brown: #8B6F47;
-  --color-brown-dark: #6B4F2A;
-  --color-olive: #6B7C5C;
-  --color-olive-light: #8A9B72;
-  --color-text: #3D3530;
-  --color-text-muted: #7A6E65;
+  --color-brown: #EA580C;
+  --color-brown-dark: #7C2D12;
+  --color-olive: #EA580C;
+  --color-olive-light: #F97316;
+  --color-text: #9A3412;
+  --color-text-muted: #C2410C;
   --font-serif: var(--font-noto-serif);
   --font-sans: var(--font-noto-sans);
 }
