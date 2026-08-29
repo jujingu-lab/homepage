@@ -10,7 +10,7 @@ const navLinks = [
   { href: "/about", label: "단초샘 소개" },
   { href: "/programs", label: "프로그램" },
   { href: "/media", label: "미디어" },
-  { href: "https://www.youtube.com/@%EB%8B%A8%EC%B4%88TV", label: "단초TV", external: true },
+  { href: "https://www.youtube.com/@DANCHOSAMTV", label: "단초TV", external: true },
   { href: "/contact", label: "상담 신청" },
 ];
 
