@@ -4,7 +4,7 @@ import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
   title: "프로그램 | 단초샘",
-  description: "이키가이, 나살롱, 골든라이프디자인, 배움성장코칭, 마음돋보기, 책쓰기 — 단초샘의 6가지 핵심 프로그램",
+  description: "이키가이, 나살롱, 골든라이프디자인, 배움성장코칭, 마음돋보기, 책쓰기, My Media — 단초샘의 7가지 핵심 프로그램",
 };
 
 const programs = [
@@ -73,7 +73,7 @@ export default function ProgramsPage() {
       <section className="bg-[var(--color-beige)] py-20 px-6 text-center">
         <FadeIn>
           <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">PROGRAMS</p>
-          <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">6가지 핵심 프로그램</h1>
+          <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">7가지 핵심 프로그램</h1>
           <p className="text-[var(--color-text-muted)] max-w-xl mx-auto">
             당신이 어떤 여정 위에 있든, 단초샘과 함께하는 프로그램이 있습니다.
           </p>

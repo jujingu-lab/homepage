@@ -137,7 +137,7 @@ export default function HomePage() {
         <FadeIn>
           <div className="text-center mb-16">
             <p className="text-sm tracking-widest text-[var(--color-olive)] mb-3">PROGRAMS</p>
-            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-brown-dark)]">6가지 핵심 프로그램</h2>
+            <h2 className="text-3xl md:text-4xl font-bold text-[var(--color-brown-dark)]">7가지 핵심 프로그램</h2>
           </div>
         </FadeIn>
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
