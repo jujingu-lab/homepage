@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import FadeIn from "@/components/FadeIn";
 
 const programs = [
@@ -70,46 +71,64 @@ export default function HomePage() {
   return (
     <>
       {/* Hero */}
-      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[var(--color-beige)] to-[var(--color-cream)] pt-16">
-        <div className="max-w-4xl mx-auto px-6 text-center">
-          <FadeIn>
-            <p className="text-sm tracking-[0.3em] text-[var(--color-olive)] uppercase mb-6">
-              Danchosam · 단초샘
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.1}>
-            <h1 className="text-4xl md:text-6xl font-bold text-[var(--color-brown-dark)] mb-6 leading-tight">
-              나다움을 찾아가는<br />온전한 나의 여정
-            </h1>
-          </FadeIn>
-          <FadeIn delay={0.2}>
-            <p className="text-lg md:text-xl text-[var(--color-text-muted)] mb-10 max-w-2xl mx-auto">
-              자신의 본질을 찾고 잠재력을 발현시켜<br className="hidden md:block" />
-              온전한 나의 삶을 살아가도록, 단초샘이 함께합니다.
-            </p>
-          </FadeIn>
-          <FadeIn delay={0.3}>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link
-                href="/programs"
-                className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium hover:bg-[var(--color-brown-dark)] transition-colors"
-              >
-                프로그램 살펴보기
-              </Link>
-              <Link
-                href="/contact"
-                className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium hover:bg-[var(--color-beige)] transition-colors"
-              >
-                무료 상담 신청
-              </Link>
-            </div>
-          </FadeIn>
+      <section className="min-h-screen flex items-center justify-center bg-gradient-to-b from-[var(--color-beige)] to-[var(--color-cream)] pt-24 pb-12">
+        <div className="max-w-6xl mx-auto px-6 grid grid-cols-1 md:grid-cols-12 gap-12 items-center">
+          {/* Left: Text */}
+          <div className="md:col-span-7 text-center md:text-left">
+            <FadeIn>
+              <p className="text-sm tracking-[0.3em] text-[var(--color-olive)] uppercase mb-6">
+                Danchosam · 단초샘
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.1}>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-[var(--color-brown-dark)] mb-6 leading-tight">
+                나다움을 찾아가는<br />온전한 나의 여정
+              </h1>
+            </FadeIn>
+            <FadeIn delay={0.2}>
+              <p className="text-lg md:text-xl text-[var(--color-text-muted)] mb-10">
+                자신의 본질을 찾고 잠재력을 발현시켜<br className="hidden md:block" />
+                온전한 나의 삶을 살아가도록, 단초샘이 함께합니다.
+              </p>
+            </FadeIn>
+            <FadeIn delay={0.3}>
+              <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                <Link
+                  href="/programs"
+                  className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium hover:bg-[var(--color-brown-dark)] transition-colors text-center"
+                >
+                  프로그램 살펴보기
+                </Link>
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium hover:bg-[var(--color-beige)] transition-colors text-center"
+                >
+                  무료 상담 신청
+                </Link>
+              </div>
+            </FadeIn>
 
-          <FadeIn delay={0.5}>
-            <div className="mt-20 flex justify-center gap-3 text-[var(--color-beige-dark)] text-3xl">
-              <span>✦</span><span>◎</span><span>◈</span>
-            </div>
-          </FadeIn>
+            <FadeIn delay={0.5}>
+              <div className="mt-12 flex justify-center md:justify-start gap-3 text-[var(--color-beige-dark)] text-3xl">
+                <span>✦</span><span>◎</span><span>◈</span>
+              </div>
+            </FadeIn>
+          </div>
+
+          {/* Right: Image */}
+          <div className="md:col-span-5 flex justify-center w-full">
+            <FadeIn delay={0.4}>
+              <div className="relative w-full max-w-[480px] aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+                <Image
+                  src="/단초tv.png"
+                  alt="단초TV 인터뷰"
+                  fill
+                  className="object-cover"
+                  priority
+                />
+              </div>
+            </FadeIn>
+          </div>
         </div>
       </section>
 
