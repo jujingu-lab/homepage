@@ -117,16 +117,23 @@ export default function HomePage() {
 
           {/* Right: Image */}
           <div className="md:col-span-5 flex justify-center w-full">
-            <FadeIn delay={0.4}>
-              <div className="relative w-full max-w-[480px] aspect-[16/9] rounded-2xl overflow-hidden shadow-lg border-4 border-white">
+            <FadeIn delay={0.4} className="w-full flex justify-center">
+              <a
+                href="https://www.youtube.com/@DANCHOSAMTV"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="group relative block w-full max-w-[500px] aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-300"
+                title="단초TV 유튜브 바로가기"
+              >
                 <Image
-                  src="/단초tv.png"
-                  alt="단초TV 인터뷰"
+                  src="/danchotv-interview.png"
+                  alt="단초TV 인터뷰 영상"
                   fill
-                  className="object-cover"
+                  sizes="(max-width: 768px) 100vw, 500px"
+                  className="object-cover group-hover:brightness-105 transition-[filter]"
                   priority
                 />
-              </div>
+              </a>
             </FadeIn>
           </div>
         </div>
