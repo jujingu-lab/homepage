@@ -119,11 +119,11 @@ export default function HomePage() {
           <div className="md:col-span-5 flex justify-center w-full">
             <FadeIn delay={0.4} className="w-full flex justify-center">
               <a
-                href="https://www.youtube.com/@DANCHOSAMTV"
+                href="https://www.youtube.com/watch?v=qZKEErbaruo"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="group relative block w-full max-w-[500px] aspect-video rounded-2xl overflow-hidden shadow-2xl border-4 border-white hover:scale-[1.02] transition-transform duration-300"
-                title="단초TV 유튜브 바로가기"
+                title="단초샘 인터뷰 영상 보기 (유튜브)"
               >
                 <Image
                   src="/danchotv-interview.png"
