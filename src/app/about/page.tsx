@@ -7,7 +7,7 @@ export const metadata: Metadata = {
 };
 
 const books = [
-  { title: "내가 외면한 나를 껴안는 법", subtitle: "마음에 들지 않는 나까지 사랑하는 자기수용 에세이", year: "2026.07.07", cover: "/books/내가 외면한 나를 껴안는 법 표지.jpg", link: "https://www.yes24.com/Product/Search?domain=ALL&query=%EB%82%B4%EA%B0%80%20%EC%99%B8%EB%A9%B4%ED%95%9C%20%EB%82%98%EB%A5%BC%20%EA%BB%80%EC%95%88%EB%8A%94%20%EB%B2%95" },
+  { title: "내가 외면한 나를 껴안는 법", subtitle: "마음에 들지 않는 나까지 사랑하는 자기수용 에세이", year: "2026.07.07", cover: "/books/내가 외면한 나를 껴안는 법 표지.jpg", link: "https://www.yes24.com/product/goods/195272558" },
   { title: "내 아이 공부를 설계하는 법", subtitle: "학습 플래너 코칭으로 자기주도학습 완성하기", year: "2026.03.11", cover: "/books/내아이공부를설계하는법 표지.png", link: "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=E282637454&start=pnaverebook" },
   { title: "그릿 스위치를 켜라", subtitle: "자기주도학습 시크릿", year: "2025.08.20", cover: "/books/그릿 종이책 표지.jpg", link: "https://smartstore.naver.com/yes24book/products/12315148377?NaPm=ct%3Dmn1lhdt4%7Cci%3D295666949c2958d329df65c265e7d1eaf0467491%7Ctr%3Dboksl1%7Csn%3D3145439%7Chk%3Df0e74d9808a05ccc46e9dfd2543163fb858528cc&nl-au=247e82838c414dd992f4154ab8361da4" },
   { title: "전업주부 12년차 엄마, 강사 되다", subtitle: "", year: "2025.05.30", cover: "/books/엄마강사되다책표지.jpeg", link: "https://www.aladin.co.kr/shop/wproduct.aspx?ISBN=E282635349&start=pnaverebook" },
