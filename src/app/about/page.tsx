@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import FadeIn from "@/components/FadeIn";
 
 export const metadata: Metadata = {
-  title: "단초샘 소개 | 단초샘",
-  description: "단초샘의 코칭 철학과 이력, 저서를 소개합니다.",
+  title: "단초샘(구경욱) 소개 | 단초샘",
+  description: "단초샘(구경욱)의 코칭 철학과 이력, 저서를 소개합니다.",
 };
 
 const books = [
@@ -40,7 +40,7 @@ export default function AboutPage() {
             />
             <div className="text-center md:text-left">
               <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">ABOUT</p>
-              <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">단초샘을 소개합니다</h1>
+              <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">단초샘(구경욱)을 소개합니다</h1>
               <p className="text-[var(--color-text-muted)] max-w-xl">
                 나다움의 가치를 믿고, 그 여정을 함께 걸어온 코칭 지도사입니다.
               </p>
