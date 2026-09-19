@@ -50,6 +50,7 @@ const programs: Record<string, {
           "챌린지를 마친 뒤 이어진 1:1 코칭은 제가 모아놓은 조각들을 '100세 시대 건강한 삶의 든든한 동반자, 쉼을 건네는 한의사 hani***'이라는 하나의 브랜드로 구체화해주는 소중한 시간이었습니다.",
         ],
         images: [
+          "/reviews/ikigai-review-0.jpg",
           "/reviews/ikigai-review-1.jpg",
           "/reviews/ikigai-review-2.jpg",
         ],
@@ -282,7 +283,7 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                         <p className="text-xs font-semibold text-[var(--color-olive)] mb-3 flex items-center gap-1.5">
                           <span>📷</span> 원본 후기 캡처
                         </p>
-                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div className={`grid grid-cols-1 gap-4 ${r.images.length === 1 ? 'max-w-md' : r.images.length === 2 ? 'sm:grid-cols-2' : 'sm:grid-cols-2 md:grid-cols-3'}`}>
                           {r.images.map((imgSrc, imgIdx) => (
                             <a
                               key={imgIdx}
