@@ -10,6 +10,7 @@ interface ReviewItem {
   title: string;
   quote?: string;
   content: string[];
+  images?: string[];
 }
 
 const programs: Record<string, {
@@ -48,6 +49,10 @@ const programs: Record<string, {
           "14일 동안 매일 하나의 질문에 답하며 천천히 나를 꺼내보는 과정은 깊고도 따뜻한 몰입의 시간이었습니다. '회복', '쉼', '균형'이라는 키워드가 내 삶 곳곳에서 조용히 반복되고 있었다는 걸 깨달았습니다.",
           "챌린지를 마친 뒤 이어진 1:1 코칭은 제가 모아놓은 조각들을 '100세 시대 건강한 삶의 든든한 동반자, 쉼을 건네는 한의사 haniSOM'이라는 하나의 브랜드로 구체화해주는 소중한 시간이었습니다.",
         ],
+        images: [
+          "/reviews/ikigai-review-1.jpg",
+          "/reviews/ikigai-review-2.jpg",
+        ],
       },
       {
         author: "락원스쿨 님",
@@ -59,6 +64,9 @@ const programs: Record<string, {
           "오랫동안 먼지 쌓인 서랍 속에 넣어 두었던 마음을 꺼내는 시간이었습니다.",
           "살아온 흔적들을 정리하며 제 아이덴티티를 '연결자'로 정했고, '유쾌한 연결자'라는 그림동화로 저의 퓨처셀프를 표현해보았습니다.",
           "위로와 위안이 필요한 분, 자신의 브랜딩이 필요한 분, 내면을 들여다보고 명확한 미래를 그려보고 싶은 분들께 강력 추천합니다!",
+        ],
+        images: [
+          "/reviews/ikigai-review-rakwon.jpg",
         ],
       },
     ],
@@ -268,6 +276,35 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                         <p key={i}>{c}</p>
                       ))}
                     </div>
+
+                    {r.images && r.images.length > 0 && (
+                      <div className="mt-6 pt-6 border-t border-[var(--color-beige-dark)]/60">
+                        <p className="text-xs font-semibold text-[var(--color-olive)] mb-3 flex items-center gap-1.5">
+                          <span>📷</span> 원본 후기 캡처
+                        </p>
+                        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                          {r.images.map((imgSrc, imgIdx) => (
+                            <a
+                              key={imgIdx}
+                              href={imgSrc}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="block overflow-hidden rounded-xl border border-[var(--color-beige-dark)] hover:shadow-md transition-shadow group bg-[var(--color-beige)]/20"
+                              title="클릭하여 원본 이미지 크게 보기"
+                            >
+                              <img
+                                src={imgSrc}
+                                alt={`${r.author} 후기 캡처 ${imgIdx + 1}`}
+                                className="w-full h-auto object-cover group-hover:scale-[1.01] transition-transform duration-200"
+                              />
+                              <span className="block text-center py-2 text-xs text-[var(--color-text-muted)] bg-white/90 border-t border-[var(--color-beige-dark)]/40 font-medium">
+                                크게 보기 🔍
+                              </span>
+                            </a>
+                          ))}
+                        </div>
+                      </div>
+                    )}
                   </div>
                 ))}
               </div>
