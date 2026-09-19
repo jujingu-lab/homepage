@@ -3,6 +3,15 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import FadeIn from "@/components/FadeIn";
 
+interface ReviewItem {
+  author: string;
+  role?: string;
+  tag?: string;
+  title: string;
+  quote?: string;
+  content: string[];
+}
+
 const programs: Record<string, {
   icon: string;
   title: string;
@@ -12,6 +21,7 @@ const programs: Record<string, {
   details: string[];
   cta: string;
   pdfUrl?: string;
+  reviews?: ReviewItem[];
 }> = {
   이키가이: {
     icon: "✦",
@@ -26,6 +36,32 @@ const programs: Record<string, {
       "1:1 개인 코칭 또는 소그룹 워크숍 형태 운영",
     ],
     cta: "이키가이 상담 신청하기",
+    reviews: [
+      {
+        author: "hani상규 님",
+        role: "한의사 · 작가 / haniSOM",
+        tag: "이키가이 브랜딩 챌린지",
+        title: "이제는 나를 말할 수 있게 되었습니다 — 쉼을 건네는 이름, haniSOM",
+        quote: "나를 정리하는 시간이 이제는 남에게 닿는 언어가 되었습니다.",
+        content: [
+          "진료실에서 환자를 만나고, 책과 콘텐츠를 통해 이야기를 나누며 살아가고 있었지만, 어느 순간 '나는 누구이고, 내가 좋아하는 것은 무엇일까?'라는 질문을 던지게 되었습니다.",
+          "14일 동안 매일 하나의 질문에 답하며 천천히 나를 꺼내보는 과정은 깊고도 따뜻한 몰입의 시간이었습니다. '회복', '쉼', '균형'이라는 키워드가 내 삶 곳곳에서 조용히 반복되고 있었다는 걸 깨달았습니다.",
+          "챌린지를 마친 뒤 이어진 1:1 코칭은 제가 모아놓은 조각들을 '100세 시대 건강한 삶의 든든한 동반자, 쉼을 건네는 한의사 haniSOM'이라는 하나의 브랜드로 구체화해주는 소중한 시간이었습니다.",
+        ],
+      },
+      {
+        author: "락원스쿨 님",
+        role: "아이덴티티: '유쾌한 연결자'",
+        tag: "이키가이 챌린지",
+        title: "오랫동안 먼지 쌓인 서랍 속 마음을 꺼내는 시간",
+        quote: "내가 살아온 흔적들을 하나씩 들여다 보면서 '어! 이게 다 연결되네?!' 생각이 들었답니다.",
+        content: [
+          "오랫동안 먼지 쌓인 서랍 속에 넣어 두었던 마음을 꺼내는 시간이었습니다.",
+          "살아온 흔적들을 정리하며 제 아이덴티티를 '연결자'로 정했고, '유쾌한 연결자'라는 그림동화로 저의 퓨처셀프를 표현해보았습니다.",
+          "위로와 위안이 필요한 분, 자신의 브랜딩이 필요한 분, 내면을 들여다보고 명확한 미래를 그려보고 싶은 분들께 강력 추천합니다!",
+        ],
+      },
+    ],
   },
   나살롱: {
     icon: "◎",
@@ -171,6 +207,14 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                 상세 과정소개(PDF) 보기
               </a>
             )}
+            {program.reviews && program.reviews.length > 0 && (
+              <a
+                href="#reviews"
+                className="px-8 py-4 rounded-full border border-[var(--color-olive)] text-[var(--color-olive)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
+              >
+                참여 후기 보기 ({program.reviews.length})
+              </a>
+            )}
             <Link
               href="/contact"
               className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
@@ -186,6 +230,51 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           </div>
         </FadeIn>
       </section>
+
+      {program.reviews && program.reviews.length > 0 && (
+        <section id="reviews" className="py-20 px-6 bg-[var(--color-beige)]/40 border-t border-[var(--color-beige-dark)]">
+          <div className="max-w-3xl mx-auto">
+            <FadeIn>
+              <div className="text-center mb-12">
+                <p className="text-xs tracking-widest text-[var(--color-olive)] uppercase mb-2">REVIEWS</p>
+                <h2 className="text-3xl font-bold text-[var(--color-brown-dark)] mb-3">참여자 생생 후기</h2>
+                <p className="text-sm text-[var(--color-text-muted)]">
+                  단초샘과 함께 나다움과 삶의 가치를 발견한 분들의 진솔한 이야기입니다.
+                </p>
+              </div>
+
+              <div className="space-y-8">
+                {program.reviews.map((r, idx) => (
+                  <div key={idx} className="p-8 rounded-2xl bg-white border border-[var(--color-beige-dark)] shadow-sm">
+                    <div className="flex flex-wrap items-center justify-between gap-2 mb-4">
+                      <div>
+                        <span className="font-bold text-lg text-[var(--color-text)] mr-2">{r.author}</span>
+                        {r.role && <span className="text-xs text-[var(--color-text-muted)]">{r.role}</span>}
+                      </div>
+                      {r.tag && (
+                        <span className="text-xs px-3 py-1 rounded-full bg-[var(--color-olive-light)]/20 text-[var(--color-olive)] font-medium">
+                          {r.tag}
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-base font-bold text-[var(--color-brown-dark)] mb-3">{r.title}</h3>
+                    {r.quote && (
+                      <p className="text-sm italic text-[var(--color-olive)] bg-[var(--color-beige)]/60 px-4 py-2.5 rounded-lg mb-4 border-l-4 border-[var(--color-olive)]">
+                        &ldquo;{r.quote}&rdquo;
+                      </p>
+                    )}
+                    <div className="space-y-2 text-sm text-[var(--color-text-muted)] leading-relaxed">
+                      {r.content.map((c, i) => (
+                        <p key={i}>{c}</p>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </FadeIn>
+          </div>
+        </section>
+      )}
     </div>
   );
 }

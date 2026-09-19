@@ -15,6 +15,7 @@ const programs = [
     subtitle: "이키가이 브랜딩 & 챌린지",
     target: "자신만의 가치와 삶의 의미를 찾고 싶은 청장년층",
     desc: "일본의 삶의 철학 '이키가이(生き甲斐)'를 통해 나만의 쓸모와 가치, 일과 삶의 교차점을 발견합니다. 이키가이 브랜딩 워크숍과 14일 실천 다이어리 '이키가이 챌린지'로 구성됩니다.",
+    hasReview: true,
   },
   {
     slug: "나살롱",
@@ -100,12 +101,22 @@ export default function ProgramsPage() {
                 대상: {p.target}
               </p>
               <p className="text-[var(--color-text-muted)] leading-relaxed mb-6">{p.desc}</p>
-              <Link
-                href={`/programs/${p.slug}`}
-                className="text-sm text-[var(--color-brown)] underline underline-offset-4 hover:text-[var(--color-brown-dark)] transition-colors"
-              >
-                자세히 보기 →
-              </Link>
+              <div className="flex items-center gap-6 flex-wrap">
+                <Link
+                  href={`/programs/${p.slug}`}
+                  className="text-sm text-[var(--color-brown)] underline underline-offset-4 hover:text-[var(--color-brown-dark)] transition-colors"
+                >
+                  자세히 보기 →
+                </Link>
+                {"hasReview" in p && p.hasReview && (
+                  <Link
+                    href={`/programs/${p.slug}#reviews`}
+                    className="text-sm font-semibold text-[var(--color-olive)] hover:text-[var(--color-brown-dark)] transition-colors flex items-center gap-1.5"
+                  >
+                    <span>💬</span> 후기 보기 →
+                  </Link>
+                )}
+              </div>
             </div>
           </FadeIn>
         ))}
