@@ -21,7 +21,7 @@ export default function MediaPage() {
       <section className="bg-[var(--color-beige)] py-20 px-6 text-center">
         <FadeIn>
           <p className="text-sm tracking-widest text-[var(--color-olive)] mb-4">MEDIA</p>
-          <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">에듀마인 부모저널</h1>
+          <h1 className="text-4xl font-bold text-[var(--color-brown-dark)] mb-4">📰 에듀마인 부모저널</h1>
           <p className="text-[var(--color-text-muted)] max-w-xl mx-auto mb-6">
             단초샘이 연재하는 교육·코칭·라이프 칼럼입니다.
           </p>

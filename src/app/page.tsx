@@ -189,7 +189,7 @@ export default function HomePage() {
           <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-12 gap-4">
             <div>
               <p className="text-sm tracking-widest text-[var(--color-olive)] mb-3">MEDIA</p>
-              <h2 className="text-3xl font-bold text-[var(--color-brown-dark)]">에듀마인 부모저널</h2>
+              <h2 className="text-3xl font-bold text-[var(--color-brown-dark)]">📰 에듀마인 부모저널</h2>
             </div>
             <Link
               href="/media"
