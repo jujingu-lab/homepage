@@ -12,7 +12,8 @@ export default function ContactForm() {
   const [loading, setLoading] = useState(false);
   const [form, setForm] = useState({
     name: "",
-    contact: "",
+    phone: "",
+    email: "",
     program: "",
     message: "",
   });
@@ -31,15 +32,19 @@ export default function ContactForm() {
           "template_n5cj81a",
           {
             name: form.name,
-            email: form.contact,
-            message: `연락처: ${form.contact}\n관심 프로그램: ${form.program || "미선택"}\n\n문의 내용:\n${form.message}`,
+            email: form.email,
+            phone: form.phone,
+            contact: `${form.phone} / ${form.email}`,
+            message: `연락처: ${form.phone}\n이메일: ${form.email}\n관심 프로그램: ${form.program || "미선택"}\n\n문의 내용:\n${form.message}`,
             title: `[상담신청] ${form.name} - ${form.program || "프로그램 미선택"}`,
           },
           "_BhBj4g9nPwINrVA0"
         ),
         addDoc(collection(db, "contacts"), {
           name: form.name,
-          contact: form.contact,
+          phone: form.phone,
+          email: form.email,
+          contact: form.phone,
           program: form.program || "미선택",
           message: form.message,
           createdAt: serverTimestamp(),
@@ -84,15 +89,30 @@ export default function ContactForm() {
 
       <div>
         <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
-          연락처 (전화 또는 이메일) <span className="text-red-400">*</span>
+          연락처 <span className="text-red-400">*</span>
         </label>
         <input
-          type="text"
-          name="contact"
+          type="tel"
+          name="phone"
           required
-          value={form.contact}
+          value={form.phone}
           onChange={handleChange}
-          placeholder="010-0000-0000 또는 email@example.com"
+          placeholder="010-0000-0000"
+          className="w-full px-4 py-3 rounded-xl border border-[var(--color-beige-dark)] bg-white focus:outline-none focus:border-[var(--color-brown)] transition-colors"
+        />
+      </div>
+
+      <div>
+        <label className="block text-sm font-medium text-[var(--color-text)] mb-2">
+          이메일 <span className="text-red-400">*</span>
+        </label>
+        <input
+          type="email"
+          name="email"
+          required
+          value={form.email}
+          onChange={handleChange}
+          placeholder="jujingu@gmail.com"
           className="w-full px-4 py-3 rounded-xl border border-[var(--color-beige-dark)] bg-white focus:outline-none focus:border-[var(--color-brown)] transition-colors"
         />
       </div>
