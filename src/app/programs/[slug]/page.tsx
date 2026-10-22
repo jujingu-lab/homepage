@@ -38,7 +38,7 @@ const programs: Record<string, {
       "1:1 개인 코칭 또는 소그룹 워크숍 형태 운영",
     ],
     cta: "이키가이 상담 신청하기",
-    coachingUrl: "https://ikigai.html",
+    coachingUrl: "/ikigai.html",
     reviews: [
       {
         author: "hani** 님",
