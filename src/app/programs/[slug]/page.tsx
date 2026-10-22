@@ -22,6 +22,7 @@ const programs: Record<string, {
   details: string[];
   cta: string;
   pdfUrl?: string;
+  coachingUrl?: string;
   reviews?: ReviewItem[];
 }> = {
   이키가이: {
@@ -37,6 +38,7 @@ const programs: Record<string, {
       "1:1 개인 코칭 또는 소그룹 워크숍 형태 운영",
     ],
     cta: "이키가이 상담 신청하기",
+    coachingUrl: "https://blog.naver.com/jujingu99",
     reviews: [
       {
         author: "hani** 님",
@@ -257,6 +259,16 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
           </ul>
 
           <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+            {program.coachingUrl && (
+              <a
+                href={program.coachingUrl}
+                target={program.coachingUrl.startsWith("http") ? "_blank" : undefined}
+                rel={program.coachingUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
+              >
+                1:1 개인코칭 자세히보기
+              </a>
+            )}
             {program.pdfUrl && (
               <a
                 href={program.pdfUrl}
