@@ -262,8 +262,8 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             {program.coachingUrl && (
               <a
                 href={program.coachingUrl}
-                target={program.coachingUrl.startsWith("http") ? "_blank" : undefined}
-                rel={program.coachingUrl.startsWith("http") ? "noopener noreferrer" : undefined}
+                target="_blank"
+                rel="noopener noreferrer"
                 className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
               >
                 1:1 개인코칭 자세히 보기
