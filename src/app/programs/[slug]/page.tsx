@@ -231,6 +231,10 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
   const program = programs[decodeURIComponent(slug)];
   if (!program) notFound();
 
+  const hasThreeTopButtons = Boolean(
+    (program.coachingUrl || program.pdfUrl) && program.reviews && program.reviews.length > 0
+  );
+
   return (
     <div className="pt-16">
       <section className="bg-[var(--color-beige)] py-20 px-6 text-center">
@@ -258,48 +262,93 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
             ))}
           </ul>
 
-          <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
-            {program.coachingUrl && (
-              <a
-                href={program.coachingUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+          {hasThreeTopButtons ? (
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
+              {program.coachingUrl && (
+                <a
+                  href={program.coachingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+                >
+                  1:1 개인코칭 자세히 보기
+                </a>
+              )}
+              {program.pdfUrl && (
+                <a
+                  href={program.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+                >
+                  상세 과정소개(PDF) 보기
+                </a>
+              )}
+              {program.reviews && program.reviews.length > 0 && (
+                <a
+                  href="#reviews"
+                  className="px-4 py-4 rounded-full border border-[var(--color-olive)] text-[var(--color-olive)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+                >
+                  참여 후기 보기 ({program.reviews.length})
+                </a>
+              )}
+              <Link
+                href="/contact"
+                className="px-4 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+              >
+                {program.cta}
+              </Link>
+              <Link
+                href="/programs"
+                className="sm:col-start-2 px-4 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+              >
+                다른 프로그램 보기
+              </Link>
+            </div>
+          ) : (
+            <div className="flex flex-col sm:flex-row sm:flex-wrap gap-4">
+              {program.coachingUrl && (
+                <a
+                  href={program.coachingUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
+                >
+                  1:1 개인코칭 자세히 보기
+                </a>
+              )}
+              {program.pdfUrl && (
+                <a
+                  href={program.pdfUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
+                >
+                  상세 과정소개(PDF) 보기
+                </a>
+              )}
+              {program.reviews && program.reviews.length > 0 && (
+                <a
+                  href="#reviews"
+                  className="px-8 py-4 rounded-full border border-[var(--color-olive)] text-[var(--color-olive)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
+                >
+                  참여 후기 보기 ({program.reviews.length})
+                </a>
+              )}
+              <Link
+                href="/contact"
                 className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
               >
-                1:1 개인코칭 자세히 보기
-              </a>
-            )}
-            {program.pdfUrl && (
-              <a
-                href={program.pdfUrl}
-                target="_blank"
-                rel="noopener noreferrer"
+                {program.cta}
+              </Link>
+              <Link
+                href="/programs"
                 className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
               >
-                상세 과정소개(PDF) 보기
-              </a>
-            )}
-            {program.reviews && program.reviews.length > 0 && (
-              <a
-                href="#reviews"
-                className="px-8 py-4 rounded-full border border-[var(--color-olive)] text-[var(--color-olive)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
-              >
-                참여 후기 보기 ({program.reviews.length})
-              </a>
-            )}
-            <Link
-              href="/contact"
-              className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
-            >
-              {program.cta}
-            </Link>
-            <Link
-              href="/programs"
-              className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"
-            >
-              다른 프로그램 보기
-            </Link>
-          </div>
+                다른 프로그램 보기
+              </Link>
+            </div>
+          )}
         </FadeIn>
       </section>
 
