@@ -11,6 +11,11 @@ interface ReviewItem {
   quote?: string;
   content: string[];
   images?: string[];
+  video?: {
+    url: string;
+    embedUrl: string;
+    title?: string;
+  };
 }
 
 const programs: Record<string, {
@@ -72,6 +77,22 @@ const programs: Record<string, {
         images: [
           "/reviews/ikigai-review-rakwon.jpg",
         ],
+      },
+      {
+        author: "이*영 님",
+        role: "빌리브라더스 대표 · 1인 기업가",
+        tag: "단초TV 인터뷰",
+        title: "이미 해오던 일과 기록을 하나로 연결해 더 단단한 나만의 브랜드를 만들다",
+        quote: "단초샘의 이키가이 브랜딩 수업을 통해 이미 해오던 사업과 기록들이 하나로 연결되었습니다.",
+        content: [
+          "단초샘의 이키가이 브랜딩 수업을 통하여 이미 해오던 사업과 일상의 기록들을 하나로 연결하고, 정리해 온 강점을 더 단단하게 만들고 실행할 수 있었습니다.",
+          "나만의 이키가이를 정립한 이후 비즈니스 정체성을 명확히 하며 작가이자 1인 기업가로서도 꾸준하고 단단하게 활동을 이어가고 있습니다.",
+        ],
+        video: {
+          url: "https://www.youtube.com/watch?v=YJ_PrhSQEt8&t=1046s",
+          embedUrl: "https://www.youtube.com/embed/YJ_PrhSQEt8?start=1046",
+          title: "단초TV 인터뷰 - 빌리브라더스 이*영 님",
+        },
       },
     ],
   },
@@ -439,6 +460,33 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                               </span>
                             </a>
                           ))}
+                        </div>
+                      </div>
+                    )}
+
+                    {r.video && (
+                      <div className="mt-6 pt-6 border-t border-[var(--color-beige-dark)]/60">
+                        <p className="text-xs font-semibold text-[var(--color-olive)] mb-3 flex items-center gap-1.5">
+                          <span>🎬</span> 생생 인터뷰 영상 (단초TV)
+                        </p>
+                        <div className="relative w-full aspect-video rounded-xl overflow-hidden border border-[var(--color-beige-dark)] shadow-sm bg-black">
+                          <iframe
+                            src={r.video.embedUrl}
+                            title={r.video.title || `${r.author} 인터뷰 영상`}
+                            className="w-full h-full"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allowFullScreen
+                          />
+                        </div>
+                        <div className="mt-3 text-right">
+                          <a
+                            href={r.video.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1.5 text-xs text-[var(--color-brown)] hover:underline font-medium"
+                          >
+                            <span>YouTube에서 전체 인터뷰 보기 →</span>
+                          </a>
                         </div>
                       </div>
                     )}
