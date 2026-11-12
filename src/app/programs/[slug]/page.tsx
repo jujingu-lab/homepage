@@ -23,6 +23,7 @@ const programs: Record<string, {
   cta: string;
   pdfUrl?: string;
   coachingUrl?: string;
+  formUrl?: string;
   reviews?: ReviewItem[];
 }> = {
   이키가이: {
@@ -194,7 +195,8 @@ const programs: Record<string, {
       "독자 설정 및 차별화 전략",
       "전자책 종이책 자가 출판 프로세스 안내",
     ],
-    cta: "책쓰기 코칭 신청하기",
+    cta: "내 삶을 쓰는 에세이 코칭 신청",
+    formUrl: "https://forms.gle/qATeLseejz1QnW8EA",
   },
   "My Media": {
     icon: "📰",
@@ -292,12 +294,23 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                   참여 후기 보기 ({program.reviews.length})
                 </a>
               )}
-              <Link
-                href="/contact"
-                className="px-4 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
-              >
-                {program.cta}
-              </Link>
+              {program.formUrl ? (
+                <a
+                  href={program.formUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-4 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+                >
+                  {program.cta}
+                </a>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="px-4 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
+                >
+                  {program.cta}
+                </Link>
+              )}
               <Link
                 href="/programs"
                 className="sm:col-start-2 px-4 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap text-sm sm:text-base flex items-center justify-center"
@@ -335,12 +348,23 @@ export default async function ProgramDetailPage({ params }: { params: Promise<{ 
                   참여 후기 보기 ({program.reviews.length})
                 </a>
               )}
-              <Link
-                href="/contact"
-                className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
-              >
-                {program.cta}
-              </Link>
+              {program.formUrl ? (
+                <a
+                  href={program.formUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
+                >
+                  {program.cta}
+                </a>
+              ) : (
+                <Link
+                  href="/contact"
+                  className="px-8 py-4 rounded-full bg-[var(--color-brown)] text-white font-medium text-center hover:bg-[var(--color-brown-dark)] transition-colors whitespace-nowrap"
+                >
+                  {program.cta}
+                </Link>
+              )}
               <Link
                 href="/programs"
                 className="px-8 py-4 rounded-full border border-[var(--color-brown)] text-[var(--color-brown)] font-medium text-center hover:bg-[var(--color-beige)] transition-colors whitespace-nowrap"

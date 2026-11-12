@@ -57,6 +57,9 @@ const programs = [
     subtitle: "내 이야기 출간 기획 코칭",
     target: "자신의 이야기를 책으로 남기고 싶은 예비 작가",
     desc: "내 안의 경험과 진솔한 이야기를 엮어 세상에 단 하나뿐인 책으로 출간하는 기획 코칭입니다. 막연한 꿈을 현실로 만들 수 있도록 기획부터 출판까지 전 과정을 함께합니다.",
+    recruiting: "https://forms.gle/qATeLseejz1QnW8EA",
+    applyUrl: "https://forms.gle/qATeLseejz1QnW8EA",
+    applyLabel: "내 삶을 쓰는 에세이 코칭 신청",
   },
   {
     slug: "My Media",
@@ -102,7 +105,7 @@ export default function ProgramsPage() {
                 대상: {p.target}
               </p>
               <p className="text-[var(--color-text-muted)] leading-relaxed mb-6">{p.desc}</p>
-              <div className="flex items-center gap-6 flex-wrap">
+              <div className="flex items-center gap-4 sm:gap-6 flex-wrap">
                 <Link
                   href={`/programs/${p.slug}`}
                   className="text-sm text-[var(--color-brown)] underline underline-offset-4 hover:text-[var(--color-brown-dark)] transition-colors"
@@ -116,6 +119,16 @@ export default function ProgramsPage() {
                   >
                     <span>💬</span> 후기 보기 →
                   </Link>
+                )}
+                {"applyUrl" in p && p.applyUrl && (
+                  <a
+                    href={p.applyUrl as string}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-5 py-2.5 rounded-full bg-[var(--color-brown)] text-white text-sm font-medium hover:bg-[var(--color-brown-dark)] transition-colors inline-flex items-center gap-1 shadow-sm"
+                  >
+                    {(p.applyLabel as string) || "신청하기"} →
+                  </a>
                 )}
               </div>
             </div>
